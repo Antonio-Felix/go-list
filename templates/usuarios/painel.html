@@ -1,0 +1,6 @@
+{% extends 'usuarios/base.html' %}
+{% block title %}Página inicial{% endblock %}
+{% block content %}
+<h2>Bem-vindo, {{ usuario.username }}!</h2>
+<a href="{% url 'logout' %}">Sair</a>
+{% endblock %}
