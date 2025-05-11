@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}GO+ list{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-content-solo">
+            <img src="/static/imagens/Logo.png" alt="logo" class="logo">
+            <div class="menu-links">
+                <a href="">Editar</a>
+                <a href="">Apagar</a>
+                <a href="{% url 'logout' %}">Sair</a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
