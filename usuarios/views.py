@@ -35,17 +35,25 @@ def login_view(request):
 
 @login_required
 def painel_view(request):
-    tarefas = Tarefa.objects.all()
+    tarefas = Tarefa.objects.filter(usuario=request.user).order_by('ordem')
     return render(request, 'usuarios/painel.html', {'usuario': request.user, 'tarefas': tarefas})
 
+
+@login_required
 @login_required
 def adicionar_tarefa_view(request):
     if request.method == 'POST':
-        tarefa = Tarefa()
-        tarefa.titulo = request.POST.get('titulo')
-        tarefa.usuario = request.user
+        ultimo = Tarefa.objects.filter(usuario=request.user).order_by('-ordem').first()
+        nova_ordem = ultimo.ordem + 1 if ultimo else 1
+
+        tarefa = Tarefa(
+            titulo=request.POST.get('titulo'),
+            usuario=request.user,
+            ordem=nova_ordem
+        )
         tarefa.save()
         return redirect('painel')
+
     
 @login_required
 def apagarTarefaView(request, id):
@@ -57,6 +65,32 @@ def apagarTarefaView(request, id):
 def apagarTodasView(request):
     user = request.user
     Tarefa.delete(usuario=user)
+
+@login_required
+def apagarTodasAllView(request, id=None):
+    Tarefa.objects.filter(usuario=request.user).delete()
+    return redirect('painel')
+
+@login_required
+def mover_para_cima_view(request, id):
+    tarefa = Tarefa.objects.get(id=id, usuario=request.user)
+    anterior = Tarefa.objects.filter(usuario=request.user, ordem__lt=tarefa.ordem).order_by('-ordem').first()
+    if anterior:
+        tarefa.ordem, anterior.ordem = anterior.ordem, tarefa.ordem
+        tarefa.save()
+        anterior.save()
+    return redirect('painel')
+
+@login_required
+def mover_para_baixo_view(request, id):
+    tarefa = Tarefa.objects.get(id=id, usuario=request.user)
+    proxima = Tarefa.objects.filter(usuario=request.user, ordem__gt=tarefa.ordem).order_by('ordem').first()
+    if proxima:
+        tarefa.ordem, proxima.ordem = proxima.ordem, tarefa.ordem
+        tarefa.save()
+        proxima.save()
+    return redirect('painel')
+
 
 def logout_view(request):
     logout(request)
