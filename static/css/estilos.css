@@ -5,6 +5,7 @@ body {
     padding: 0;
     margin: 0;
 }
+
 header{
     position: fixed;
     top: 0;
@@ -15,6 +16,7 @@ header{
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
 main{
     font-family: Conthrax;
     src: url('../font/conthrax-sb.otf') format('otf');
@@ -24,6 +26,7 @@ main{
     height: 100%;
     width: 100%;
 }
+
 .container {
     background: white;
     padding: 20px;
@@ -39,18 +42,21 @@ main{
     padding: 10px 30px;
     align-items: center;
 }
+
 .logo {
     height: auto;
     width: 120px;
 }
 
 /* Painel após cadastrado */
+
 .header-content-solo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
 }
+
 .menu-links a {
     font-family: Conthrax;
     color: #E8F3FF;
@@ -60,25 +66,31 @@ main{
     font-size: 20px;
     transition: color 0.3s;
 }
+
 .menu-links a:hover {
     color: #ccc;
 }
+
 .container-painel{
     font-family: Conthrax;
     margin: 10px;
     padding: 20px;
     max-width: 600px;
 }
+
 ul{
     list-style: none;
     padding: 0px;
 }
+
 li{
     margin-bottom: 10px;
 }
+
 input[type="checkbox"] {
     margin-right: 8px;
 }
+
 .container-painel h1{
     font-size: 24px;
     margin-bottom: 20px;
@@ -112,16 +124,18 @@ input[type="checkbox"] {
     margin-top: 10px;
     text-align: center;
 }
+
 .login-form button {
     display: block;
     margin: 10px auto;
 }
 
 /* Cadastro */
+
 .cadastro-container {
-    padding-top: 80px; /* ajuste conforme a altura do seu header */
-    min-height: calc(100vh - 80px); /* ajusta a altura considerando o header */
-    padding-bottom: 80px; /* adiciona espaço na parte inferior */
+    padding-top: 80px; 
+    min-height: calc(100vh - 80px);
+    padding-bottom: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
