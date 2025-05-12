@@ -1,7 +1,7 @@
 body {
     font-family: Conthrax;
     src: url('../font/conthrax-sb.otf') format('otf');
-    background-color: #212529;
+    background-color: #212529 !important;
     padding: 0;
     margin: 0;
 }
@@ -43,6 +43,7 @@ main{
     height: auto;
     width: 120px;
 }
+
 /* Painel após cadastrado */
 .header-content-solo {
     display: flex;
@@ -69,8 +70,8 @@ main{
     max-width: 600px;
 }
 ul{
-list-style: none;
-padding: 0px;
+    list-style: none;
+    padding: 0px;
 }
 li{
     margin-bottom: 10px;
@@ -81,4 +82,77 @@ input[type="checkbox"] {
 .container-painel h1{
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+/* login */
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    min-width: 300px;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+.login-form button {
+    display: block;
+    margin: 10px auto;
+}
+
+/* Cadastro */
+.cadastro-container {
+    padding-top: 80px; /* ajuste conforme a altura do seu header */
+    min-height: calc(100vh - 80px); /* ajusta a altura considerando o header */
+    padding-bottom: 80px; /* adiciona espaço na parte inferior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cadastro-form {
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    min-width: 260px;
+    font-size: 14px;
+}
+
+.cadastro-form h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.cadastro-form button {
+    display: block;
+    margin: 8px auto;
+    padding: 6px 16px;
+    font-size: 14px;
+}
+
+.cadastro-form a {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
 }

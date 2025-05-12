@@ -3,9 +3,6 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import FormCadastro, FormLogin
 from django.contrib.auth.decorators import login_required
 from .models import Tarefa
-from django.http import JsonResponse
-from django.views import View
-
 
 def cadastro_view(request):
     if request.method == 'POST':

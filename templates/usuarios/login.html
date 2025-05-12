@@ -1,11 +1,13 @@
 {% extends 'usuarios/base.html' %}
 {% block title %}Login{% endblock %}
 {% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Entrar</button>
-</form>
-<a href="{% url 'cadastro' %}">Não tem conta? Cadastre-se</a>
+<div class="login-container">
+  <form method="post" class="login-form">
+    <h2>Login</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary align-items-center">Entrar</button>
+    <a href="{% url 'cadastro' %}">Não tem conta? Cadastre-se</a>
+  </form>
+</div>
 {% endblock %}
