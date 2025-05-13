@@ -30,7 +30,7 @@ def login_view(request):
         form = FormLogin()
     return render(request, 'usuarios/login.html', {'form': form})
 
-@login_required
+@login_required(login_url='login')
 def painel_view(request):
     tarefas = Tarefa.objects.filter(usuario=request.user).order_by('ordem')
     return render(request, 'usuarios/painel.html', {'usuario': request.user, 'tarefas': tarefas})
